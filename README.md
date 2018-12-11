@@ -9,6 +9,14 @@ Install plz.
 
 - curl
 - jq
+- awscli
+
+Change ENV
+
+```shell
+$ cp .env.sample .env
+$ vim .env # edit your environment
+```
 
 ## Run
 
@@ -26,5 +34,6 @@ deny 13.210.0.0/15; #From AWS
 deny 52.94.17.0/24; #From AWS
 deny 52.95.154.0/23; #From AWS
 ...
+allow 52.199.187.25/32; # Instance-ID: XXXXXXXX
 ```
 
