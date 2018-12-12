@@ -34,6 +34,8 @@ $ vim .env # edit your environment
 ```shell
 $ gen.sh > blockips.conf
 $ cat blockips.conf
+allow 52.199.187.25/32; # Instance-ID: XXXXXXXX
+...
 deny 18.208.0.0/13; #From AWS
 deny 52.95.245.0/24; #From AWS
 deny 52.194.0.0/15; #From AWS
@@ -44,7 +46,5 @@ deny 52.95.255.112/28; #From AWS
 deny 13.210.0.0/15; #From AWS
 deny 52.94.17.0/24; #From AWS
 deny 52.95.154.0/23; #From AWS
-...
-allow 52.199.187.25/32; # Instance-ID: XXXXXXXX
 ```
 

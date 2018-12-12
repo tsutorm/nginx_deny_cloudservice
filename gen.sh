@@ -1,7 +1,7 @@
 #!/bin/bash
 source $(pwd)/.env
 
-aws ec2 describe-addresses | jq -r '.Addresses[] | [.PublicIp, .InstanceId] | @tsv' | awk '{print "allow",$1"/32;","# Instance-ID:"$2}'
+aws ec2 describe-instances | jq -r '.Reservations[].Instances[] | select(.State.Name == "running") | [.PublicIpAddress, .InstanceId] | @tsv' | awk '{print "allow",$1"/32;","# Instance-ID:"$2}'
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[].ip_prefix' | awk '{print "deny",$1";","#From AWS"}'
 
 # https://cloud.google.com/compute/docs/faq#ipranges
